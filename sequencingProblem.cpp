@@ -1,7 +1,7 @@
 /*
-To run this code enter the following commands in linux terminal 
-1st command  --> g++ sequencingProblem.cpp -o main.exe
-2nd command --> ./main.exe
+To run this code copy past the following commands in linux terminal one by one 
+1st command  --> g++ sequencingProblem.cpp -o main.out
+2nd command --> ./main.out
 
 The program will ask you 3 things 
 1) 1st sequence 
@@ -304,9 +304,6 @@ int main() {
 	string str1, str2;
 	bool seqFlag;
 	vector<int> sequence1, sequence2 ;
-	sequence1 = stringToVec(str1);
-	sequence2 = stringToVec(str2);
-
 	vector<int> combSeq1;			// Will contain all possible combinations of sequence1
 	vector<int> combSeq2;			// Will contain all possible combinations of sequence2
 	vector<int> doubleDecker, temp;
@@ -318,8 +315,11 @@ int main() {
 	cout<<"Please Enter Second Sequence = ";
 	cin>>str2;	
 	
-	cout<<"Do you want to print all the sequences?\n ENTER 1 to print all the the possible sequences OR ENTER 0 to just get the total number of sequences"<<endl;
+	cout<<"Do you want to print all the sequences?\n ENTER 1 to print all the the possible sequences OR ENTER 0 to just get the total number of possible combinations.\t";
 	cin>>seqFlag;
+	
+	sequence1 = stringToVec(str1);
+	sequence2 = stringToVec(str2);
 
 	int n = sequence1.size();				//Size of 1st sequence 
 	int m = sequence2.size();				//Size of 2nd sequence
@@ -362,7 +362,7 @@ int main() {
 
 	doubleDecker.clear();
 	doubleDecker = temp;
-	printFinalSeq(doubleDecker, 1);
+	printFinalSeq(doubleDecker, seqFlag);
 		
 	return 0;
 }
